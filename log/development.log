@@ -1,0 +1,7 @@
+Started GET "/" for 127.0.0.1 at 2017-08-28 10:50:56 +0800
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (12.9ms)
+Completed 200 OK in 6693ms (Views: 5760.5ms)
+
+
