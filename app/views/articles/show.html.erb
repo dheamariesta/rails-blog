@@ -7,4 +7,9 @@
   <strong>Text:</strong>
   <%= @article.text %>
 </p>
+
+<% if current_user.id === @article.user_id %>
+  <%= link_to 'Edit', edit_article_path(@article) %> |
+<% end %>
+
 <%= link_to 'Back', articles_path %>
