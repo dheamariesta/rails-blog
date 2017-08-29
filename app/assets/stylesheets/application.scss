@@ -13,3 +13,12 @@
  *= require_tree .
  *= require_self
  */
+ @import "bootstrap";
+.header-text{
+  line-height: 40px;
+}
+
+.header{
+  background-color: #eeeeee;
+  border-bottom: 1px #cccccc solid;
+}
