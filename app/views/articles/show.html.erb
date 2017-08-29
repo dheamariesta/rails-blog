@@ -8,6 +8,14 @@
   <%= @article.text %>
 </p>
 
+<!-- <%= form_for :user, url: '/favourite' do |f| %>
+  <%= f.submit "Add to favourites" %>
+<% end %> -->
+<%= link_to "Add to favourites",
+            :controller => "users",
+            :action => "add_favourite",
+            :article_id => @article.id%>
+
 <% if current_user.id === @article.user_id %>
   <%= link_to 'Edit', edit_article_path(@article) %> |
 <% end %>

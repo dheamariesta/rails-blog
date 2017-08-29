@@ -16,6 +16,21 @@ class UsersController < ApplicationController
     @user = current_user
   end
 
+  def add_favourite
+    @favourite = current_user.favourites.build(article_id: params[:article_id])
+    if @favourite.save
+      flash[:notice] = "Added a new favourite article."
+      redirect_to root_url
+    else
+     flash[:error] = "Unable to add favourite article."
+     redirect_to root_url
+    end
+  end
+
+  # def get_favourites
+  #
+  # end
+
   private
     def user_params
       params.require(:user).permit(:name, :email, :password, :password_confirmation)

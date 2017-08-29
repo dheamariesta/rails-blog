@@ -462,3 +462,743 @@ Processing by UsersController#edit as HTML
 Completed 200 OK in 97ms (Views: 78.8ms | ActiveRecord: 1.4ms)
 
 
+Started GET "/" for 127.0.0.1 at 2017-08-29 09:19:34 +0800
+  [1m[35m (35.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+ActiveRecord::PendingMigrationError (
+
+Migrations are pending. To resolve this issue, run:
+
+        bin/rails db:migrate RAILS_ENV=development
+
+):
+  
+activerecord (5.1.3) lib/active_record/migration.rb:576:in `check_pending!'
+activerecord (5.1.3) lib/active_record/migration.rb:553:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/callbacks.rb:26:in `block in call'
+activesupport (5.1.3) lib/active_support/callbacks.rb:97:in `run_callbacks'
+actionpack (5.1.3) lib/action_dispatch/middleware/callbacks.rb:24:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/debug_exceptions.rb:59:in `call'
+web-console (3.5.1) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.5.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.3) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.3) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.3) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.3) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.3) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.3) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.3) lib/rack/method_override.rb:22:in `call'
+rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.3) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.3) lib/rails/engine.rb:522:in `call'
+puma (3.10.0) lib/puma/configuration.rb:225:in `call'
+puma (3.10.0) lib/puma/server.rb:605:in `handle_request'
+puma (3.10.0) lib/puma/server.rb:437:in `process_client'
+puma (3.10.0) lib/puma/server.rb:301:in `block in run'
+puma (3.10.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT pg_try_advisory_lock(1378031083969451415)[0m
+  [1m[35m (1.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateFavourites (20170829011314)
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (381.3ms)[0m  [1m[35mCREATE TABLE "favourites" ("id" bigserial primary key, "user_id" integer, "article_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35mSQL (1.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170829011314"]]
+  [1m[35m (6.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (77.1ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.9ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT pg_advisory_unlock(1378031083969451415)[0m
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/" for 127.0.0.1 at 2017-08-29 09:20:03 +0800
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by WelcomeController#index as HTML
+Redirected to http://localhost:3000/login
+Filter chain halted as :authorize rendered or redirected
+Completed 302 Found in 13ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2017-08-29 09:20:04 +0800
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (2.6ms)
+Completed 200 OK in 1116ms (Views: 1104.9ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/login" for 127.0.0.1 at 2017-08-29 09:20:14 +0800
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"NQP6VxVKecQT3/GgQNaOP/5z0MXus4n78/ERre2eZwCWFrkYztPyVFoOMnXv+qYQPWwo3Vgvfj9vqg8Ra7Q3kw==", "email"=>"dhea@dhea.com", "password"=>"[FILTERED]", "commit"=>"Submit"}
+  [1m[36mUser Load (62.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "dhea@dhea.com"], ["LIMIT", 1]]
+Redirected to http://localhost:3000/
+Completed 302 Found in 422ms (ActiveRecord: 75.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-08-29 09:20:15 +0800
+Processing by WelcomeController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (3.4ms)
+Completed 200 OK in 84ms (Views: 77.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/articles" for 127.0.0.1 at 2017-08-29 09:23:38 +0800
+Processing by ArticlesController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering articles/index.html.erb within layouts/application
+  [1m[36mArticle Load (59.8ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  Rendered articles/index.html.erb within layouts/application (83.4ms)
+Completed 200 OK in 199ms (Views: 77.1ms | ActiveRecord: 63.0ms)
+
+
+Started GET "/favourite" for 127.0.0.1 at 2017-08-29 09:23:40 +0800
+  
+ActionController::RoutingError (No route matches [GET] "/favourite"):
+  
+actionpack (5.1.3) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+web-console (3.5.1) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.5.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.3) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.3) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.3) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.3) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.3) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.3) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.3) lib/rack/method_override.rb:22:in `call'
+rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.3) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.3) lib/rails/engine.rb:522:in `call'
+puma (3.10.0) lib/puma/configuration.rb:225:in `call'
+puma (3.10.0) lib/puma/server.rb:605:in `handle_request'
+puma (3.10.0) lib/puma/server.rb:437:in `process_client'
+puma (3.10.0) lib/puma/server.rb:301:in `block in run'
+puma (3.10.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/" for 127.0.0.1 at 2017-08-29 09:28:44 +0800
+Processing by WelcomeController#index as HTML
+  [1m[36mUser Load (3.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 90ms (Views: 77.4ms | ActiveRecord: 3.7ms)
+
+
+Started GET "/articles" for 127.0.0.1 at 2017-08-29 09:28:47 +0800
+Processing by ArticlesController#index as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering articles/index.html.erb within layouts/application
+  [1m[36mArticle Load (2.3ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  Rendered articles/index.html.erb within layouts/application (12.6ms)
+Completed 200 OK in 199ms (Views: 192.3ms | ActiveRecord: 3.1ms)
+
+
+Started GET "/articles" for 127.0.0.1 at 2017-08-29 09:28:57 +0800
+Processing by ArticlesController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering articles/index.html.erb within layouts/application
+  [1m[36mArticle Load (1.2ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  Rendered articles/index.html.erb within layouts/application (4.5ms)
+Completed 200 OK in 43ms (Views: 39.5ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/articles" for 127.0.0.1 at 2017-08-29 09:29:07 +0800
+Processing by ArticlesController#index as HTML
+  [1m[36mUser Load (2.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering articles/index.html.erb within layouts/application
+  [1m[36mArticle Load (2.1ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  Rendered articles/index.html.erb within layouts/application (9.8ms)
+Completed 200 OK in 129ms (Views: 118.6ms | ActiveRecord: 4.8ms)
+
+
+Started POST "/favourite" for 127.0.0.1 at 2017-08-29 09:29:09 +0800
+Processing by UsersController#add_favourite as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ydM8X6DgnKGjQqaPJiUPZmpaPG1Ig28Q8Ml2lcuCJ6tqxn8Qe3kXMeqTZVqJCSdJqUXEdf4fmNRskmgpTah3OA==", "commit"=>"Add to favourites"}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mFavourite Exists (1.9ms)[0m  [1m[34mSELECT  1 AS one FROM "favourites" WHERE "favourites"."user_id" = $1 AND "favourites"."article_id" IS NULL LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  [1m[35m (14.3ms)[0m  [1m[31mROLLBACK[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 455ms (ActiveRecord: 26.7ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-08-29 09:29:09 +0800
+Processing by WelcomeController#index as HTML
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 97ms (Views: 89.0ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-08-29 09:31:32 +0800
+Processing by WelcomeController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 105ms (Views: 100.5ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/articles" for 127.0.0.1 at 2017-08-29 09:31:35 +0800
+Processing by ArticlesController#index as HTML
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering articles/index.html.erb within layouts/application
+  [1m[36mArticle Load (1.3ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  Rendered articles/index.html.erb within layouts/application (10.4ms)
+Completed 200 OK in 96ms (Views: 87.0ms | ActiveRecord: 2.9ms)
+
+
+Started GET "/articles" for 127.0.0.1 at 2017-08-29 09:32:32 +0800
+Processing by ArticlesController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering articles/index.html.erb within layouts/application
+  [1m[36mArticle Load (1.4ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  Rendered articles/index.html.erb within layouts/application (4.5ms)
+Completed 200 OK in 55ms (Views: 50.6ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/articles" for 127.0.0.1 at 2017-08-29 09:32:41 +0800
+Processing by ArticlesController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering articles/index.html.erb within layouts/application
+  [1m[36mArticle Load (0.9ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  Rendered articles/index.html.erb within layouts/application (5.8ms)
+Completed 200 OK in 148ms (Views: 139.4ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/articles/1" for 127.0.0.1 at 2017-08-29 09:32:45 +0800
+Processing by ArticlesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (8.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mArticle Load (0.7ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering articles/show.html.erb within layouts/application
+  Rendered articles/show.html.erb within layouts/application (5.8ms)
+Completed 200 OK in 97ms (Views: 74.8ms | ActiveRecord: 9.1ms)
+
+
+Started POST "/favourite" for 127.0.0.1 at 2017-08-29 09:32:47 +0800
+Processing by UsersController#add_favourite as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"F5JhNTY7kdwEBHdpAMdaj5FwpJwp7+dHMNOJqu90rq+OjZaTBE3ZmQTuKpkBzIGRhKAaJy7dnjtLLDJ2IrX+Qw==", "commit"=>"Add to favourites"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.9ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mFavourite Exists (1.9ms)[0m  [1m[34mSELECT  1 AS one FROM "favourites" WHERE "favourites"."user_id" = $1 AND "favourites"."article_id" IS NULL LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  [1m[35m (0.6ms)[0m  [1m[31mROLLBACK[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 31ms (ActiveRecord: 3.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-08-29 09:32:47 +0800
+Processing by WelcomeController#index as HTML
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 52ms (Views: 48.5ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/articles/1" for 127.0.0.1 at 2017-08-29 09:38:14 +0800
+  [1m[35m (4.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ArticlesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (1.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mArticle Load (0.4ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering articles/show.html.erb within layouts/application
+  Rendered articles/show.html.erb within layouts/application (26.3ms)
+Completed 500 Internal Server Error in 176ms (ActiveRecord: 24.0ms)
+
+
+  
+ActionView::Template::Error (No route matches {:action=>"add_favourite", :article_id=>1, :controller=>"user", :id=>"1"}):
+    11: <!-- <%= form_for :user, url: '/favourite' do |f| %>
+    12:   <%= f.submit "Add to favourites" %>
+    13: <% end %> -->
+    14: <%= link_to "Add to favourites", {:controller => "user", :action => "add_favourite", :article_id => @article.id }%>
+    15: <% if current_user.id === @article.user_id %>
+    16:   <%= link_to 'Edit', edit_article_path(@article) %> |
+    17: <% end %>
+  
+app/views/articles/show.html.erb:14:in `_app_views_articles_show_html_erb___3211061813599441444_47019973837080'
+Started GET "/articles/1" for 127.0.0.1 at 2017-08-29 09:40:29 +0800
+Processing by ArticlesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (3.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mArticle Load (1.5ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering articles/show.html.erb within layouts/application
+  Rendered articles/show.html.erb within layouts/application (442.7ms)
+Completed 500 Internal Server Error in 457ms (ActiveRecord: 5.3ms)
+
+
+  
+ActionView::Template::Error (undefined method `add_favourite_user_path' for #<#<Class:0x00558761d22b28>:0x0055876037dc18>):
+    11: <!-- <%= form_for :user, url: '/favourite' do |f| %>
+    12:   <%= f.submit "Add to favourites" %>
+    13: <% end %> -->
+    14: <%= link_to "Add to favourites", add_favourite_user_path(:article_id => @article.id )%>
+    15: <% if current_user.id === @article.user_id %>
+    16:   <%= link_to 'Edit', edit_article_path(@article) %> |
+    17: <% end %>
+  
+app/views/articles/show.html.erb:14:in `_app_views_articles_show_html_erb___3211061813599441444_47019961654720'
+Started GET "/articles/1" for 127.0.0.1 at 2017-08-29 09:41:06 +0800
+Processing by ArticlesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mArticle Load (1.5ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering articles/show.html.erb within layouts/application
+  Rendered articles/show.html.erb within layouts/application (430.7ms)
+Completed 500 Internal Server Error in 601ms (ActiveRecord: 28.6ms)
+
+
+  
+ActionView::Template::Error (undefined method `favourite_user_path' for #<#<Class:0x007fc000373198>:0x007fc000370c18>):
+    11: <!-- <%= form_for :user, url: '/favourite' do |f| %>
+    12:   <%= f.submit "Add to favourites" %>
+    13: <% end %> -->
+    14: <%= link_to "Add to favourites", favourite_user_path(:article_id => @article.id )%>
+    15: <% if current_user.id === @article.user_id %>
+    16:   <%= link_to 'Edit', edit_article_path(@article) %> |
+    17: <% end %>
+  
+app/views/articles/show.html.erb:14:in `_app_views_articles_show_html_erb___3211061813599441444_70231307034200'
+Started GET "/articles/1" for 127.0.0.1 at 2017-08-29 09:41:51 +0800
+Processing by ArticlesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mArticle Load (1.8ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering articles/show.html.erb within layouts/application
+  Rendered articles/show.html.erb within layouts/application (5.9ms)
+Completed 500 Internal Server Error in 155ms (ActiveRecord: 18.3ms)
+
+
+  
+SyntaxError (/home/dhea/rails-blog/app/views/articles/show.html.erb:14: syntax error, unexpected '(', expecting ')'
+ to favourites", '/favourite'(:article_id => @article.id ));
+                              ^
+/home/dhea/rails-blog/app/views/articles/show.html.erb:14: syntax error, unexpected ')', expecting keyword_end
+(:article_id => @article.id ));@output_buffer.safe_append='
+                              ^):
+  
+app/views/articles/show.html.erb:14: syntax error, unexpected '(', expecting ')'
+app/views/articles/show.html.erb:14: syntax error, unexpected ')', expecting keyword_end
+Started GET "/articles/1" for 127.0.0.1 at 2017-08-29 09:42:36 +0800
+Processing by ArticlesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mArticle Load (0.4ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering articles/show.html.erb within layouts/application
+  Rendered articles/show.html.erb within layouts/application (0.9ms)
+Completed 500 Internal Server Error in 6ms (ActiveRecord: 0.7ms)
+
+
+  
+SyntaxError (/home/dhea/rails-blog/app/views/articles/show.html.erb:14: unterminated regexp meets end of file
+/home/dhea/rails-blog/app/views/articles/show.html.erb:14: syntax error, unexpected end-of-input, expecting ')'):
+  
+app/views/articles/show.html.erb:14: unterminated regexp meets end of file
+app/views/articles/show.html.erb:14: syntax error, unexpected end-of-input, expecting ')'
+Started GET "/articles/1" for 127.0.0.1 at 2017-08-29 09:42:49 +0800
+Processing by ArticlesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mArticle Load (0.7ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering articles/show.html.erb within layouts/application
+  Rendered articles/show.html.erb within layouts/application (0.8ms)
+Completed 500 Internal Server Error in 7ms (ActiveRecord: 1.3ms)
+
+
+  
+SyntaxError (/home/dhea/rails-blog/app/views/articles/show.html.erb:14: unterminated regexp meets end of file
+/home/dhea/rails-blog/app/views/articles/show.html.erb:14: syntax error, unexpected end-of-input, expecting ')'):
+  
+app/views/articles/show.html.erb:14: unterminated regexp meets end of file
+app/views/articles/show.html.erb:14: syntax error, unexpected end-of-input, expecting ')'
+Started GET "/articles/1" for 127.0.0.1 at 2017-08-29 09:42:59 +0800
+Processing by ArticlesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mArticle Load (0.5ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering articles/show.html.erb within layouts/application
+  Rendered articles/show.html.erb within layouts/application (2.2ms)
+Completed 500 Internal Server Error in 19ms (ActiveRecord: 1.8ms)
+
+
+  
+SyntaxError (/home/dhea/rails-blog/app/views/articles/show.html.erb:14: syntax error, unexpected '(', expecting ')'
+to favourites", ('/favourite'(:article_id => @article.id )))
+                              ^
+/home/dhea/rails-blog/app/views/articles/show.html.erb:14: syntax error, unexpected ')', expecting keyword_end
+:article_id => @article.id )));@output_buffer.safe_append='
+                              ^):
+  
+app/views/articles/show.html.erb:14: syntax error, unexpected '(', expecting ')'
+app/views/articles/show.html.erb:14: syntax error, unexpected ')', expecting keyword_end
+Started GET "/articles/1" for 127.0.0.1 at 2017-08-29 09:43:47 +0800
+Processing by ArticlesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mArticle Load (1.9ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering articles/show.html.erb within layouts/application
+  Rendered articles/show.html.erb within layouts/application (310.3ms)
+Completed 500 Internal Server Error in 401ms (ActiveRecord: 23.5ms)
+
+
+  
+ActionView::Template::Error (undefined method `favourite_user_path' for #<#<Class:0x00558761d3c618>:0x00558761d290b8>):
+    11: <!-- <%= form_for :user, url: '/favourite' do |f| %>
+    12:   <%= f.submit "Add to favourites" %>
+    13: <% end %> -->
+    14: <%= link_to "Add to favourites", favourite_user_path(:article_id => @article.id )%>
+    15: <% if current_user.id === @article.user_id %>
+    16:   <%= link_to 'Edit', edit_article_path(@article) %> |
+    17: <% end %>
+  
+app/views/articles/show.html.erb:14:in `_app_views_articles_show_html_erb___3211061813599441444_47019975109520'
+Started GET "/articles/1" for 127.0.0.1 at 2017-08-29 09:45:52 +0800
+Processing by ArticlesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mArticle Load (3.6ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering articles/show.html.erb within layouts/application
+  Rendered articles/show.html.erb within layouts/application (6.6ms)
+Completed 500 Internal Server Error in 258ms (ActiveRecord: 72.2ms)
+
+
+  
+ActionView::Template::Error (No route matches {:action=>"add_favourite", :article_id=>1, :controller=>"user", :id=>"1"}):
+    11: <!-- <%= form_for :user, url: '/favourite' do |f| %>
+    12:   <%= f.submit "Add to favourites" %>
+    13: <% end %> -->
+    14: <%= link_to "Add to favourites",
+    15:             :controller => "user",
+    16:             :action => "add_favourite",
+    17:             :article_id => @article.id%>
+  
+app/views/articles/show.html.erb:14:in `_app_views_articles_show_html_erb___3211061813599441444_47019962356940'
+Started GET "/articles/1" for 127.0.0.1 at 2017-08-29 09:46:07 +0800
+Processing by ArticlesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mArticle Load (0.2ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering articles/show.html.erb within layouts/application
+  Rendered articles/show.html.erb within layouts/application (867.6ms)
+Completed 500 Internal Server Error in 883ms (ActiveRecord: 1.2ms)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `car' for #<#<Class:0x005587604e9250>:0x00558761b88d58>):
+    18: <!-- <%= link_to "Add to cart",
+    19:             :controller => "car",
+    20:             :action => "add_to_cart",
+    21:             :car => car.attributes %> -->
+    22: <% if current_user.id === @article.user_id %>
+    23:   <%= link_to 'Edit', edit_article_path(@article) %> |
+    24: <% end %>
+  
+app/views/articles/show.html.erb:21:in `_app_views_articles_show_html_erb___3211061813599441444_47019974217160'
+Started GET "/articles/1" for 127.0.0.1 at 2017-08-29 09:46:19 +0800
+Processing by ArticlesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mArticle Load (0.4ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering articles/show.html.erb within layouts/application
+  Rendered articles/show.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 302ms (Views: 297.1ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/favourite?article_id=1" for 127.0.0.1 at 2017-08-29 09:46:22 +0800
+  
+ActionController::RoutingError (No route matches [GET] "/favourite"):
+  
+actionpack (5.1.3) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+web-console (3.5.1) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.5.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.3) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.3) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.3) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.3) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.3) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.3) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.3) lib/rack/method_override.rb:22:in `call'
+rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.3) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.3) lib/rails/engine.rb:522:in `call'
+puma (3.10.0) lib/puma/configuration.rb:225:in `call'
+puma (3.10.0) lib/puma/server.rb:605:in `handle_request'
+puma (3.10.0) lib/puma/server.rb:437:in `process_client'
+puma (3.10.0) lib/puma/server.rb:301:in `block in run'
+puma (3.10.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/favourite?article_id=1" for 127.0.0.1 at 2017-08-29 09:47:09 +0800
+Processing by UsersController#add_favourite as HTML
+  Parameters: {"article_id"=>"1"}
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (6.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mArticle Load (2.0ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mFavourite Exists (2.2ms)[0m  [1m[34mSELECT  1 AS one FROM "favourites" WHERE "favourites"."user_id" = $1 AND "favourites"."article_id" = $2 LIMIT $3[0m  [["user_id", 1], ["article_id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (35.1ms)[0m  [1m[32mINSERT INTO "favourites" ("user_id", "article_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["user_id", 1], ["article_id", 1], ["created_at", "2017-08-29 01:47:09.772116"], ["updated_at", "2017-08-29 01:47:09.772116"]]
+  [1m[35m (5.4ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 417ms (ActiveRecord: 152.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-08-29 09:47:09 +0800
+Processing by WelcomeController#index as HTML
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (15.5ms)
+Completed 200 OK in 157ms (Views: 144.0ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/articles" for 127.0.0.1 at 2017-08-29 09:47:13 +0800
+Processing by ArticlesController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering articles/index.html.erb within layouts/application
+  [1m[36mArticle Load (0.9ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  Rendered articles/index.html.erb within layouts/application (18.9ms)
+Completed 200 OK in 167ms (Views: 151.2ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/articles/1" for 127.0.0.1 at 2017-08-29 09:47:15 +0800
+Processing by ArticlesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (3.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mArticle Load (5.9ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering articles/show.html.erb within layouts/application
+  Rendered articles/show.html.erb within layouts/application (5.5ms)
+Completed 200 OK in 108ms (Views: 77.8ms | ActiveRecord: 9.6ms)
+
+
+Started GET "/favourite?article_id=1" for 127.0.0.1 at 2017-08-29 09:47:16 +0800
+Processing by UsersController#add_favourite as HTML
+  Parameters: {"article_id"=>"1"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mArticle Load (0.4ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mFavourite Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM "favourites" WHERE "favourites"."user_id" = $1 AND "favourites"."article_id" = $2 LIMIT $3[0m  [["user_id", 1], ["article_id", 1], ["LIMIT", 1]]
+  [1m[35m (3.8ms)[0m  [1m[31mROLLBACK[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 55ms (ActiveRecord: 6.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-08-29 09:47:16 +0800
+Processing by WelcomeController#index as HTML
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 156ms (Views: 144.0ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/articles" for 127.0.0.1 at 2017-08-29 09:49:09 +0800
+Processing by ArticlesController#index as HTML
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering articles/index.html.erb within layouts/application
+  [1m[36mArticle Load (2.6ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  Rendered articles/index.html.erb within layouts/application (5.2ms)
+Completed 200 OK in 103ms (Views: 92.3ms | ActiveRecord: 3.7ms)
+
+
+Started GET "/articles/new" for 127.0.0.1 at 2017-08-29 09:49:10 +0800
+Processing by ArticlesController#new as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering articles/new.html.erb within layouts/application
+  Rendered articles/_form.html.erb (6.1ms)
+  Rendered articles/new.html.erb within layouts/application (12.0ms)
+Completed 500 Internal Server Error in 53ms (ActiveRecord: 0.7ms)
+
+
+  
+ActionView::Template::Error (First argument in form cannot contain nil or be empty):
+    1: <%= form_for @article do |f| %>
+    2: 
+    3:   <% if @article.errors.any? %>
+    4:     <div id="error_explanation">
+  
+app/views/articles/_form.html.erb:1:in `_app_views_articles__form_html_erb___590326840375941221_70231172674740'
+app/views/articles/new.html.erb:3:in `_app_views_articles_new_html_erb___2232797991294358327_70231172792000'
+Started GET "/articles/new" for 127.0.0.1 at 2017-08-29 09:51:26 +0800
+Processing by ArticlesController#new as HTML
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering articles/new.html.erb within layouts/application
+  Rendered articles/new.html.erb within layouts/application (15.2ms)
+Completed 500 Internal Server Error in 33ms (ActiveRecord: 0.9ms)
+
+
+  
+ActionView::Template::Error (undefined method `errors' for nil:NilClass):
+    3: 
+    4: <%= form_for :article, url: articles_path do |f| %>
+    5: 
+    6:   <% if @article.errors.any? %>
+    7:     <div id="error_explanation">
+    8:       <h2>
+    9:         <%= pluralize(@article.errors.count, "error") %> prohibited
+  
+app/views/articles/new.html.erb:6:in `block in _app_views_articles_new_html_erb___2232797991294358327_70231185454860'
+app/views/articles/new.html.erb:4:in `_app_views_articles_new_html_erb___2232797991294358327_70231185454860'
+Started GET "/articles/new" for 127.0.0.1 at 2017-08-29 09:51:52 +0800
+Processing by ArticlesController#new as HTML
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering articles/new.html.erb within layouts/application
+  Rendered articles/new.html.erb within layouts/application (10.7ms)
+Completed 500 Internal Server Error in 22ms (ActiveRecord: 0.8ms)
+
+
+  
+ActionView::Template::Error (undefined method `errors' for nil:NilClass):
+    3: 
+    4: <%= form_for :article, url: articles_path do |f| %>
+    5: 
+    6:   <!-- <% if @article.errors.any? %>
+    7:     <div id="error_explanation">
+    8:       <h2>
+    9:         <%= pluralize(@article.errors.count, "error") %> prohibited
+  
+app/views/articles/new.html.erb:6:in `block in _app_views_articles_new_html_erb___2232797991294358327_70231205149680'
+app/views/articles/new.html.erb:4:in `_app_views_articles_new_html_erb___2232797991294358327_70231205149680'
+Started GET "/articles/new" for 127.0.0.1 at 2017-08-29 09:52:04 +0800
+Processing by ArticlesController#new as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering articles/new.html.erb within layouts/application
+  Rendered articles/new.html.erb within layouts/application (115.1ms)
+Completed 200 OK in 298ms (Views: 287.8ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/articles" for 127.0.0.1 at 2017-08-29 09:52:10 +0800
+Processing by ArticlesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"xwaU+H5FRoSZ0Pow4aQGYGy8HRBhx3VMvFaevISS6rNkE9e3pdzNFNABOeVOiC5Pr6PlCNdbgoggDYAAAri6IA==", "article"=>{"title"=>"asdf", "text"=>"asdfdfgfdghdfg"}, "commit"=>"Save Article"}
+  [1m[36mUser Load (2.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (6.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  Rendering articles/new.html.erb within layouts/application
+  Rendered articles/new.html.erb within layouts/application (13.8ms)
+Completed 200 OK in 140ms (Views: 89.1ms | ActiveRecord: 8.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-08-29 09:53:23 +0800
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by WelcomeController#index as HTML
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (5.7ms)
+Completed 200 OK in 672ms (Views: 570.2ms | ActiveRecord: 16.3ms)
+
+
+Started GET "/articles" for 127.0.0.1 at 2017-08-29 09:53:28 +0800
+Processing by ArticlesController#index as HTML
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering articles/index.html.erb within layouts/application
+  [1m[36mArticle Load (1.5ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  Rendered articles/index.html.erb within layouts/application (95.4ms)
+Completed 200 OK in 339ms (Views: 256.9ms | ActiveRecord: 45.1ms)
+
+
+Started GET "/articles/new" for 127.0.0.1 at 2017-08-29 09:53:30 +0800
+Processing by ArticlesController#new as HTML
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering articles/new.html.erb within layouts/application
+  Rendered articles/new.html.erb within layouts/application (17.4ms)
+Completed 500 Internal Server Error in 31ms (ActiveRecord: 4.0ms)
+
+
+  
+ActionView::Template::Error (undefined method `errors' for nil:NilClass):
+    1: 
+    2: <%= form_for :article, url: articles_path do |f| %>
+    3: 
+    4:   <% if @article.errors.any? %>
+    5:     <div id="error_explanation">
+    6:       <h2>
+    7:         <%= pluralize(@article.errors.count, "error") %> prohibited
+  
+app/views/articles/new.html.erb:4:in `block in _app_views_articles_new_html_erb___1264911535814487026_69836605353060'
+app/views/articles/new.html.erb:2:in `_app_views_articles_new_html_erb___1264911535814487026_69836605353060'
+Started GET "/articles/new" for 127.0.0.1 at 2017-08-29 09:56:13 +0800
+Processing by ArticlesController#new as HTML
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering articles/new.html.erb within layouts/application
+  Rendered articles/new.html.erb within layouts/application (25.0ms)
+Completed 200 OK in 80ms (Views: 70.2ms | ActiveRecord: 1.6ms)
+
+
+Started POST "/articles" for 127.0.0.1 at 2017-08-29 09:56:19 +0800
+Processing by ArticlesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"i5BATQCa2weuMZRxdS8YMQsklWmqjKzutxj3nLVrJYwohQMC2wNQl+fgV6TaAzAeyDttcRwQWyorQ+kgM0F1Hw==", "article"=>{"title"=>"sdfgfdsfgh", "text"=>"sdfshfgfghfg"}, "commit"=>"Save Article"}
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (1.9ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (165.6ms)[0m  [1m[32mINSERT INTO "articles" ("title", "text", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "sdfgfdsfgh"], ["text", "sdfshfgfghfg"], ["user_id", 1], ["created_at", "2017-08-29 01:56:19.832257"], ["updated_at", "2017-08-29 01:56:19.832257"]]
+  [1m[35m (6.1ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/articles/2
+Completed 302 Found in 237ms (ActiveRecord: 175.2ms)
+
+
+Started GET "/articles/2" for 127.0.0.1 at 2017-08-29 09:56:20 +0800
+Processing by ArticlesController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mArticle Load (2.0ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering articles/show.html.erb within layouts/application
+  Rendered articles/show.html.erb within layouts/application (8.4ms)
+Completed 200 OK in 103ms (Views: 87.8ms | ActiveRecord: 3.6ms)
+
+
+Started GET "/articles" for 127.0.0.1 at 2017-08-29 09:56:49 +0800
+Processing by ArticlesController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering articles/index.html.erb within layouts/application
+  [1m[36mArticle Load (0.5ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  Rendered articles/index.html.erb within layouts/application (6.2ms)
+Completed 200 OK in 77ms (Views: 72.2ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/articles/2" for 127.0.0.1 at 2017-08-29 09:56:52 +0800
+Processing by ArticlesController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mArticle Load (0.3ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering articles/show.html.erb within layouts/application
+  Rendered articles/show.html.erb within layouts/application (2.7ms)
+Completed 200 OK in 96ms (Views: 77.6ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/favourite?article_id=2" for 127.0.0.1 at 2017-08-29 09:56:53 +0800
+Processing by UsersController#add_favourite as HTML
+  Parameters: {"article_id"=>"2"}
+  [1m[36mUser Load (3.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mArticle Load (2.7ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mFavourite Exists (0.9ms)[0m  [1m[34mSELECT  1 AS one FROM "favourites" WHERE "favourites"."user_id" = $1 AND "favourites"."article_id" = $2 LIMIT $3[0m  [["user_id", 1], ["article_id", 2], ["LIMIT", 1]]
+  [1m[35mSQL (2.1ms)[0m  [1m[32mINSERT INTO "favourites" ("user_id", "article_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["user_id", 1], ["article_id", 2], ["created_at", "2017-08-29 01:56:53.437587"], ["updated_at", "2017-08-29 01:56:53.437587"]]
+  [1m[35m (3.5ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 77ms (ActiveRecord: 17.7ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-08-29 09:56:53 +0800
+Processing by WelcomeController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (2.7ms)
+Completed 200 OK in 65ms (Views: 59.9ms | ActiveRecord: 0.5ms)
+
+
