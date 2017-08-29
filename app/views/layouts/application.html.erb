@@ -9,23 +9,26 @@
   </head>
 
   <body>
-    <header>
-      <div class="row header">
-        <div class="col-12 col-md-8">
+    <div class="container-fluid">
+      <header>
+        <div class="row header">
+          <div class="col-12 col-md-8">
+
+          </div>
+          <div class="col-6 col-md-3 header-text">
+            <% if current_user %>
+              Signed in as <%= link_to current_user.name, '/account' %> | <%= link_to "Logout", '/logout' %>
+            <% else %>
+              <%= link_to 'Login', '/login' %> | <%= link_to 'Signup', '/signup' %>
+            <% end %>
+          </div>
 
         </div>
-        <div class="col-6 col-md-4 header-text">
-          <% if current_user %>
-            Signed in as <%= link_to current_user.name, '/account' %> | <%= link_to "Logout", '/logout' %>
-          <% else %>
-            <%= link_to 'Login', '/login' %> | <%= link_to 'Signup', '/signup' %>
-          <% end %>
-        </div>
 
-      </div>
+      </header>
+      <%= yield %>
+    </div>
 
-    </header>
-    <%= yield %>
-    
+
   </body>
 </html>
