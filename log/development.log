@@ -1202,3 +1202,38 @@ Processing by WelcomeController#index as HTML
 Completed 200 OK in 65ms (Views: 59.9ms | ActiveRecord: 0.5ms)
 
 
+Started GET "/" for 127.0.0.1 at 2017-08-29 09:59:47 +0800
+Processing by WelcomeController#index as HTML
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 82ms (Views: 74.2ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/articles" for 127.0.0.1 at 2017-08-29 09:59:52 +0800
+Processing by ArticlesController#index as HTML
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering articles/index.html.erb within layouts/application
+  [1m[36mArticle Load (0.8ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  Rendered articles/index.html.erb within layouts/application (14.4ms)
+Completed 200 OK in 120ms (Views: 114.2ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/account" for 127.0.0.1 at 2017-08-29 09:59:53 +0800
+Processing by UsersController#edit as HTML
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering users/edit.html.erb within layouts/application
+  [1m[36mArticle Load (4.0ms)[0m  [1m[34mSELECT "articles".* FROM "articles" INNER JOIN "favourites" ON "articles"."id" = "favourites"."article_id" WHERE "favourites"."user_id" = $1[0m  [["user_id", 1]]
+  Rendered users/edit.html.erb within layouts/application (121.0ms)
+Completed 200 OK in 203ms (Views: 194.0ms | ActiveRecord: 4.9ms)
+
+
+Started GET "/account" for 127.0.0.1 at 2017-08-29 10:01:17 +0800
+Processing by UsersController#edit as HTML
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering users/edit.html.erb within layouts/application
+  [1m[36mArticle Load (2.3ms)[0m  [1m[34mSELECT "articles".* FROM "articles" INNER JOIN "favourites" ON "articles"."id" = "favourites"."article_id" WHERE "favourites"."user_id" = $1[0m  [["user_id", 1]]
+  Rendered users/edit.html.erb within layouts/application (24.5ms)
+Completed 200 OK in 78ms (Views: 69.0ms | ActiveRecord: 3.3ms)
+
+
