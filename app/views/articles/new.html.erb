@@ -3,12 +3,12 @@
   <%= form_for :article, url: articles_path do |f| %>
     <p>
       <%= f.label :title %><br>
-      <%= f.text_field :title , class: "text-form-field"%>
+      <%= f.text_field :title , class: "title-form-field"%>
     </p>
 
     <p>
       <%= f.label :text %><br>
-      <%= f.text_area :text %>
+      <%= f.text_area :text, class:"text-form-field" %>
     </p>
 
     <p>
