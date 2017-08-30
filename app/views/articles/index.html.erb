@@ -1,27 +1,28 @@
-<h1>Listing articles</h1>
-
-<table>
-  <tr>
-    <th>Title</th>
-    <th>Text</th>
-  </tr>
+<div class="container">
+  <div class="article-header">
+    <h1>Articles</h1><br />
+    <%= link_to 'New article', new_article_path %>
+  </div>
 
   <% @articles.each do |article| %>
-    <tr>
-      <td><%= article.title %></td>
-      <td><%= article.text %></td>
-      <td>
-        <%= link_to 'Show', article_path(article) %>
-      </td>
-      <!-- <td><%= link_to 'Show', article_path(article) %></td> -->
-      <% if current_user.id === article.user_id %>
-        <td><%= link_to 'Edit', edit_article_path(article) %></td>
-        <td><%= link_to 'Destroy', article_path(article),
-              method: :delete,
-              data: { confirm: 'Are you sure?' } %></td>
-      <% end %>
-    </tr>
+    <div class="article-item">
+      <h4 class="blog-table-title">
+        <%= article.title.capitalize %>
+      </h4>
+      <p class="content">
+        <%= article.text %>
+      </p>
+      <p>
+        <%= link_to 'Show more', article_path(article) %>
+        <% if current_user.id === article.user_id %>
+          <%= link_to 'Edit', edit_article_path(article) %>
+          <%= link_to 'Delete', article_path(article),
+                method: :delete,
+                data: { confirm: 'Are you sure?' } ,
+                class: 'delete-button'%>
+        <% end %>
+      </p>
+    </div>
   <% end %>
-</table>
 
-<%= link_to 'New article', new_article_path %>
+</div>
