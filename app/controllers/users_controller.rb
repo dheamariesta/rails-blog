@@ -19,6 +19,12 @@ class UsersController < ApplicationController
     end
   end
 
+  def destroy
+    User.find(current_user.id).destroy
+    flash[:success] = "User deleted"
+    redirect_to '/login'
+  end
+
   def add_favourite
     @favourite = current_user.favourites.build(article_id: params[:article_id])
     if @favourite.save

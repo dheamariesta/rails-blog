@@ -13,7 +13,16 @@
       <%= f.password_field :password_confirmation , placeholder: 'Password Confirmation'%>
       <%= f.submit "Submit" %>
 
+
     <% end %>
+    <%= link_to "delete", user_path(current_user), method: :delete,
+                                  data: { confirm: "You sure?" } %>
+    <!-- <%= link_to 'Delete Account', 'deleteaccount',
+          method: :post,
+          data: { confirm: 'Are you sure?' } ,
+          class: 'delete-button'%> -->
+
+
   </div>
 
 

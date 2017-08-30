@@ -8,7 +8,7 @@
   <div class="col-12 col-md-4 signup-form">
     <h1 id="login-title">SIGN UP!</h1>
     <br />
-    <%= form_for :user, url: '/users' do |f| %>
+    <%= form_for :user, url: '/create' do |f| %>
 
       <%= f.text_field :name , placeholder: 'Username'%>
       <%= f.text_field :email , placeholder: 'Email'%>
