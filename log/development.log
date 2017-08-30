@@ -7235,3 +7235,178 @@ Migrating to CreateFavourites (20170829011314)
   [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_advisory_unlock(1378031083969451415)[0m
   [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
 >>>>>>> Stashed changes
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT pg_try_advisory_lock(1378031083969451415)[0m
+  [1m[35m (3.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.6ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (3.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (2.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (2.5ms)[0m  [1m[34mSELECT pg_advisory_unlock(1378031083969451415)[0m
+  [1m[35m (2.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/login" for 127.0.0.1 at 2017-08-30 22:07:22 +0800
+  [1m[35m (7.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (10.5ms)
+Completed 200 OK in 1196ms (Views: 1151.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/signup" for 127.0.0.1 at 2017-08-30 22:07:31 +0800
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (51.4ms)
+Completed 200 OK in 209ms (Views: 198.3ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/create" for 127.0.0.1 at 2017-08-30 22:07:39 +0800
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Y5z+u+uytL8opWnsmHlQNfK/l30N9RwStXhpDSZeT2XjXHYsMXoCqmmUCFthewZi1j1jMqmgNYw5B/v75p8QaA==", "user"=>{"name"=>"dhea", "email"=>"dhea@dhea.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Submit"}
+  [1m[35m (3.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (13.0ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "dhea"], ["email", "dhea@dhea.com"], ["password_digest", "$2a$10$SnvLmZjV1DZD.sq.l421q.IWML.T.lqbgcDNpzFjfyb.tozARGlGm"], ["created_at", "2017-08-30 14:07:40.074262"], ["updated_at", "2017-08-30 14:07:40.074262"]]
+  [1m[35m (95.9ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 601ms (ActiveRecord: 160.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-08-30 22:07:40 +0800
+Processing by WelcomeController#index as HTML
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (38.4ms)
+Completed 200 OK in 262ms (Views: 230.3ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/articles" for 127.0.0.1 at 2017-08-30 22:07:45 +0800
+Processing by ArticlesController#index as HTML
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering articles/index.html.erb within layouts/application
+  [1m[36mArticle Load (5.8ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  Rendered articles/index.html.erb within layouts/application (34.0ms)
+Completed 200 OK in 286ms (Views: 209.9ms | ActiveRecord: 20.9ms)
+
+
+Started GET "/account" for 127.0.0.1 at 2017-08-30 22:07:51 +0800
+Processing by UsersController#edit as HTML
+  [1m[36mUser Load (30.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering users/edit.html.erb within layouts/application
+  [1m[36mArticle Load (1.5ms)[0m  [1m[34mSELECT "articles".* FROM "articles" INNER JOIN "favourites" ON "articles"."id" = "favourites"."article_id" WHERE "favourites"."user_id" = $1[0m  [["user_id", 1]]
+  Rendered users/edit.html.erb within layouts/application (138.1ms)
+Completed 200 OK in 274ms (Views: 223.0ms | ActiveRecord: 40.6ms)
+
+
+Started GET "/account" for 127.0.0.1 at 2017-08-30 22:08:54 +0800
+Processing by UsersController#edit as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering users/edit.html.erb within layouts/application
+  [1m[36mArticle Load (0.6ms)[0m  [1m[34mSELECT "articles".* FROM "articles" INNER JOIN "favourites" ON "articles"."id" = "favourites"."article_id" WHERE "favourites"."user_id" = $1[0m  [["user_id", 1]]
+  Rendered users/edit.html.erb within layouts/application (34.5ms)
+Completed 200 OK in 184ms (Views: 125.1ms | ActiveRecord: 11.3ms)
+
+
+Started DELETE "/users/1" for 127.0.0.1 at 2017-08-30 22:08:59 +0800
+Processing by UsersController#destroy as HTML
+  Parameters: {"authenticity_token"=>"xe1C2jcv9h5mPySVO+k4Wg7mODZ8pWUCkZ7v0BJqb+R20vJ3MpRXoLtf4JpW2gELKgGtejX/bdT7wvrldS5OzQ==", "id"=>"1"}
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.0ms)
+
+
+  
+NoMethodError (undefined method `id' for nil:NilClass):
+  
+app/controllers/users_controller.rb:24:in `destroy'
+Started DELETE "/users/1" for 127.0.0.1 at 2017-08-30 22:09:34 +0800
+Processing by UsersController#destroy as HTML
+  Parameters: {"authenticity_token"=>"xe1C2jcv9h5mPySVO+k4Wg7mODZ8pWUCkZ7v0BJqb+R20vJ3MpRXoLtf4JpW2gELKgGtejX/bdT7wvrldS5OzQ==", "id"=>"1"}
+  [1m[36mUser Load (7.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", nil], ["LIMIT", 1]]
+Completed 404 Not Found in 78ms (ActiveRecord: 7.5ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find User with 'id'=user_id):
+  
+app/controllers/users_controller.rb:24:in `destroy'
+Started DELETE "/users/1" for 127.0.0.1 at 2017-08-30 22:17:07 +0800
+Processing by UsersController#destroy as HTML
+  Parameters: {"authenticity_token"=>"xe1C2jcv9h5mPySVO+k4Wg7mODZ8pWUCkZ7v0BJqb+R20vJ3MpRXoLtf4JpW2gELKgGtejX/bdT7wvrldS5OzQ==", "id"=>"1"}
+  [1m[36mUser Load (19.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (11.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mArticle Load (0.5ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."user_id" = $1[0m  [["user_id", 1]]
+  [1m[35mSQL (5.5ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 1]]
+  [1m[35m (4.6ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/login
+Completed 302 Found in 179ms (ActiveRecord: 42.1ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2017-08-30 22:17:07 +0800
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (14.7ms)
+Completed 200 OK in 262ms (Views: 258.9ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/login" for 127.0.0.1 at 2017-08-30 22:17:23 +0800
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"mBzT3GOPR/HcPNmqIvMMiDrWLWklaQppFXjFogUROwUrI2NxZjTmTwFcHaVPwDXZHjG4JWwzAr9/JNCXYlUaLA==", "email"=>"dhea@dhea.com", "password"=>"[FILTERED]", "commit"=>"Submit"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "dhea@dhea.com"], ["LIMIT", 1]]
+Redirected to http://localhost:3000/login
+Completed 302 Found in 9ms (ActiveRecord: 0.3ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2017-08-30 22:17:23 +0800
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 99ms (Views: 96.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/signup" for 127.0.0.1 at 2017-08-30 22:17:36 +0800
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (4.6ms)
+Completed 200 OK in 108ms (Views: 104.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/create" for 127.0.0.1 at 2017-08-30 22:17:44 +0800
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"njcxkfJpA5/XV4JMH6iUb7BuDBahw2KKsQULYcBs6DIe97kGKKG1ipZm4/vmqsI4lOz4WQWWSxQ9epmXAK23Pw==", "user"=>{"name"=>"dhea", "email"=>"dhea@dhea.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Submit"}
+  [1m[35m (1.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.8ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "dhea"], ["email", "dhea@dhea.com"], ["password_digest", "$2a$10$dWAydLlVOfVX5y7E3FDSpuuUIM2wO4i4OBBUs5gwTn59dDNJj95Fy"], ["created_at", "2017-08-30 14:17:45.270214"], ["updated_at", "2017-08-30 14:17:45.270214"]]
+  [1m[35m (4.6ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 359ms (ActiveRecord: 7.7ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-08-30 22:17:45 +0800
+Processing by WelcomeController#index as HTML
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (20.9ms)
+Completed 200 OK in 178ms (Views: 165.5ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/account" for 127.0.0.1 at 2017-08-30 22:17:50 +0800
+Processing by UsersController#edit as HTML
+  [1m[36mUser Load (3.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering users/edit.html.erb within layouts/application
+  [1m[36mArticle Load (2.0ms)[0m  [1m[34mSELECT "articles".* FROM "articles" INNER JOIN "favourites" ON "articles"."id" = "favourites"."article_id" WHERE "favourites"."user_id" = $1[0m  [["user_id", 2]]
+  Rendered users/edit.html.erb within layouts/application (47.6ms)
+Completed 200 OK in 264ms (Views: 239.8ms | ActiveRecord: 4.9ms)
+
+
+Started DELETE "/users/2" for 127.0.0.1 at 2017-08-30 22:17:55 +0800
+Processing by UsersController#destroy as HTML
+  Parameters: {"authenticity_token"=>"l71lbzmmkvjBUBAEr0FynUGNNkYPFQDlCKMwl1qxrrskgtXCPB0zRhww1AvCckvMZWqjCkZPCDNi/yWiPfWPkg==", "id"=>"2"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (5.9ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mArticle Load (1.0ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."user_id" = $1[0m  [["user_id", 2]]
+  [1m[35mSQL (20.6ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 2]]
+  [1m[35m (6.9ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/login
+Completed 302 Found in 60ms (ActiveRecord: 34.7ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2017-08-30 22:17:55 +0800
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (4.0ms)
+Completed 200 OK in 209ms (Views: 204.6ms | ActiveRecord: 0.0ms)
+
+
