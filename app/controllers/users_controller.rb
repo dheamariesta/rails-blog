@@ -14,6 +14,9 @@ class UsersController < ApplicationController
 
   def edit
     @user = current_user
+    if current_user === nil
+      redirect_to '/login'
+    end
   end
 
   def add_favourite

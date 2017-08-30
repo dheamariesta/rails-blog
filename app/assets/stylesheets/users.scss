@@ -1,3 +1,53 @@
 // Place all the styles related to the users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+#account-favourite, #edit-account-header{
+  margin-top: 50px;
+}
+
+.edit-account-form{
+  margin-top: 50px;
+}
+
+
+.edit-account-form input{
+  border: 0px;
+  border-bottom: 1px solid #cccccc;
+  padding: 5px;
+  width: 50%;
+  margin: 5px;
+}
+.edit-account-form input:focus{
+  outline: none;
+}
+
+.signup-form{
+  position: absolute;
+  top: 20%;
+  // left: 30%;
+  height: 300px;
+  text-align: center;
+  z-index: 2;
+}
+.signup-form input{
+  background-color: rgba(0,0,0,0);
+  // background: transparent;
+  border: 0px;
+  border-bottom: 1px solid white;
+  padding: 5px;
+  margin: 10px;
+  color: white;
+  width: 100%;
+}
+.signup-form input::placeholder{
+  color: white;
+}
+.signup-form input:focus{
+  outline: none;
+}
+#signup-submit{
+  border: 2px solid white;
+  padding: 10px;
+  font-size: 18px;
+}

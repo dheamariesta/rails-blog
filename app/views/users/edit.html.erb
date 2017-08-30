@@ -1,36 +1,44 @@
-<h1>Edit account</h1>
+<div class="container">
+  <%= link_to 'Back', articles_path %>
+  <h1 id="edit-account-header">Edit account</h1>
 
-<%= form_for :user, url: '/users' do |f| %>
+  <div class="edit-account-form">
 
-  Name: <%= f.text_field :name %>
-  Email: <%= f.text_field :email %>
-  Password: <%= f.password_field :password %>
-  Password Confirmation: <%= f.password_field :password_confirmation %>
-  <%= f.submit "Submit" %>
+    <!-- <br /> -->
+    <%= form_for :user, url: '/users' do |f| %>
 
-<% end %>
+      <%= f.text_field :name %><br />
+      <%= f.text_field :email%><br />
+      <%= f.password_field :password ,  placeholder: 'Password'%><br />
+      <%= f.password_field :password_confirmation , placeholder: 'Password Confirmation'%>
+      <%= f.submit "Submit" %>
 
-<h2>Your favourites</h2>
-<table>
-  <tr>
-    <th>Title</th>
-    <th>Text</th>
-  </tr>
+    <% end %>
+  </div>
+
+
+  <h2 id="account-favourite">Your favourites</h2>
 
   <% current_user.favourite_articles.each do |article| %>
-    <tr>
-      <td><%= article.title %></td>
-      <td><%= article.text %></td>
-      <td>
-        <%= link_to 'Show', article_path(article) %>
-      </td>
-      <!-- <td><%= link_to 'Show', article_path(article) %></td> -->
-      <% if current_user.id === article.user_id %>
-        <td><%= link_to 'Edit', edit_article_path(article) %></td>
-        <td><%= link_to 'Destroy', article_path(article),
-              method: :delete,
-              data: { confirm: 'Are you sure?' } %></td>
-      <% end %>
-    </tr>
+    <div class="article-item">
+      <h4 class="blog-table-title">
+        <%= article.title.capitalize %>
+      </h4>
+      <p class="content">
+        <%= article.text %>
+      </p>
+      <p>
+        <%= link_to 'Show more', article_path(article) %>
+        <% if current_user.id === article.user_id %>
+          <%= link_to 'Edit', edit_article_path(article) %>
+          <%= link_to 'Delete', article_path(article),
+                method: :delete,
+                data: { confirm: 'Are you sure?' } ,
+                class: 'delete-button'%>
+        <% end %>
+      </p>
+    </div>
+
   <% end %>
-</table>
+
+</div>
