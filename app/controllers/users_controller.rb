@@ -14,6 +14,17 @@ class UsersController < ApplicationController
 
   def edit
     @user = current_user
+    if current_user === nil
+      redirect_to '/login'
+    end
+  end
+
+  def destroy
+    session[:user_id] = nil
+    User.find(params[:id]).destroy
+
+    flash[:success] = "User deleted"
+    redirect_to '/login'
   end
 
   def add_favourite

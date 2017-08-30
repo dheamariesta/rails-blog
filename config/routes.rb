@@ -1,10 +1,13 @@
 Rails.application.routes.draw do
   resources :articles
+  resources :users
   # resources :users
   root 'welcome#index'
 
   get '/signup' => 'users#new'
-  post '/users' => 'users#create'
+  post '/create' => 'users#create'
+  # get '/delete' => 'users#destroy'
+  # post '/deleteaccount' => 'users#destroy'
 
   get '/login' => 'sessions#new'
   post '/login' => 'sessions#create'
