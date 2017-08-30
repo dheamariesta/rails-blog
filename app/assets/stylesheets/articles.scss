@@ -1,3 +1,63 @@
 // Place all the styles related to the Articles controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+td, th{
+  padding: 10px;
+  bordeR: 1px solid #cccccc;
+}
+
+.content{
+  width: 80%;
+  line-height: 1.2em;
+  height: 3.6em;
+  overflow: hidden;
+}
+
+.blog-table-title{
+  font-weight: bold;
+}
+
+.article-item{
+  border-bottom: 1px solid #cccccc;
+  padding: 10px;
+
+  // max-height: 200px;
+  overflow: hidden;
+}
+
+a:hover{
+  text-decoration: none;
+}
+.delete-button{
+  color:red;
+}
+.delete-button:hover{
+  color:#d81900;
+  text-decoration: none;
+}
+.article-header{
+  border-bottom: 1px solid #cccccc;
+  margin-top: 20px;
+}
+.notice{
+  background-color: #68ff9f;
+  border-top: 1px solid #0c993f;
+  border-bottom: 1px solid #0c993f;
+}
+.individual-article-container{
+  padding: 50px;
+}
+.description-width{
+  width: 80%;
+  padding-top: 20px;
+}
+.new-article{
+  padding: 50px;
+}
+.title-form-field{
+  width: 50%;
+}
+.text-form-field{
+  width: 50%;
+  height: 400px;
+}

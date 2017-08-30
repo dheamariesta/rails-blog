@@ -1,3 +1,44 @@
 // Place all the styles related to the sessions controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+#login-title{
+  font-family: 'Zilla Slab Highlight', cursive;
+  color: white;
+}
+.overlay{
+  background-color: rgba(0,0,0,.3);
+  width: 100vw;
+  height: 100vh;
+  z-index: 1;
+  position: absolute;
+}
+.login-form{
+  position: absolute;
+  top: 25%;
+  // left: 30%;
+  height: 300px;
+  text-align: center;
+  z-index: 2;
+}
+
+.login-form input{
+  background-color: rgba(0,0,0,0);
+  // background: transparent;
+  border: 0px;
+  border-bottom: 1px solid black;
+  padding: 5px;
+  margin: 10px;
+  color: white;
+  width: 100%;
+}
+.login-form input::placeholder{
+  color: white;
+}
+.login-form input:focus{
+  outline: none;
+}
+#login-submit{
+  border: 2px solid white;
+  padding: 10px;
+  font-size: 18px;
+}

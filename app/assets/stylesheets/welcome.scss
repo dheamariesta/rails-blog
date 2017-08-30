@@ -1,3 +1,29 @@
 // Place all the styles related to the welcome controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+@import url('https://fonts.googleapis.com/css?family=Zilla+Slab+Highlight');
+#blog-title{
+  font-size: 70px;
+  font-family: 'Zilla Slab Highlight', cursive;
+}
+.landing-page{
+  background-image: image-url('lace.jpg');
+  background-size: cover;
+  height: 100vh;
+}
+.blog-title{
+  height: 200px;
+  width: 500px;
+  position: relative;
+  top: 50%;
+  left: 50%;
+  margin-left: -250px;
+  margin-top: -100px;
+}
+a{
+  color: black;
+}
+a:hover{
+  color: blue;
+  text-decoration: none;
+}
