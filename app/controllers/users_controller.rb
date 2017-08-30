@@ -22,12 +22,24 @@ class UsersController < ApplicationController
       flash[:notice] = "Added a new favourite article."
       redirect_to '/articles/'+ params[:article_id]
     else
-     flash[:error] = "Unable to add favourite article."
+     flash[:error] = "You have added this article to favourite"
      redirect_to '/articles/'+ params[:article_id]
     end
   end
 
-  
+  # def remove_favourite
+  #   @favourite = Favourite.find(params[:article_id])
+  #   # current_user.favourites.build(article_id: params[:article_id])
+  #   if @favourite.destroy
+  #     flash[:notice] = "Removed from favourites"
+  #     redirect_to '/articles/'+ params[:article_id]
+  #   else
+  #    flash[:error] = "Unable to remove favourite article."
+  #    redirect_to '/articles/'+ params[:article_id]
+  #   end
+  # end
+
+
 
   # def get_favourites
   #

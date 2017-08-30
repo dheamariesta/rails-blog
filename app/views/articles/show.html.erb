@@ -1,44 +1,30 @@
-<% flash.each do |name, msg| -%>
-  <%= content_tag :div, msg, class: name %>
-<% end -%>
-<p>
-  <strong>Title:</strong>
-  <%= @article.title %>
-</p>
+<div class="container individual-article-container">
+  <% flash.each do |name, msg| -%>
+    <%= content_tag :div, msg, class: name %>
+  <% end -%>
+  <h1>
+    <%= @article.title.capitalize %>
+  </h1>
 
-<p>
-  <strong>Text:</strong>
-  <%= @article.text %>
-</p>
+  <hr />
+  <p class="description-width">
+    <%= @article.text %>
+  </p>
 
-<!-- <%= form_for :user, url: '/favourite' do |f| %>
-  <%= f.submit "Add to favourites" %>
-<% end %> -->
-<% if current_user.favourites.length === 0 %>
+  <!-- <%= form_for :user, url: '/favourite' do |f| %>
+    <%= f.submit "Add to favourites" %>
+  <% end %> -->
+
+
+
   <%= link_to "Add to favourites",
               :controller => "users",
               :action => "add_favourite",
-              :article_id => @article.id%>
-<% else %>
-  <% current_user.favourites.each do |favourite| %>
-    <% if (favourite.article_id === @article.id) %>
-      <%= link_to "Remove favourites",
-                  :controller => "users",
-                  :action => "add_favourite",
-                  :article_id => @article.id%>
-    <% else %>
-      <%= link_to "Add to favourites",
-                  :controller => "users",
-                  :action => "add_favourite",
-                  :article_id => @article.id%>
-    <% end %>
-  <%end%>
-<% end %>
+              :article_id => @article.id%><br />
+  <% if current_user.id === @article.user_id %>
+    <%= link_to 'Edit', edit_article_path(@article) %> |
+  <% end %>
 
+  <%= link_to 'Back', articles_path %>
 
-
-<% if current_user.id === @article.user_id %>
-  <%= link_to 'Edit', edit_article_path(@article) %> |
-<% end %>
-
-<%= link_to 'Back', articles_path %>
+</div>

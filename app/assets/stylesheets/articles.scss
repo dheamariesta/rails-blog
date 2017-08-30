@@ -37,9 +37,23 @@ a:hover{
 }
 .article-header{
   border-bottom: 1px solid #cccccc;
+  margin-top: 20px;
 }
 .notice{
   background-color: #68ff9f;
   border-top: 1px solid #0c993f;
   border-bottom: 1px solid #0c993f;
+}
+.individual-article-container{
+  padding: 50px;
+}
+.description-width{
+  width: 80%;
+  padding-top: 20px;
+}
+.new-article{
+  padding: 50px;
+}
+.text-form-field{
+  width: 50%;
 }
