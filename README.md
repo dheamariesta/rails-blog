@@ -1,24 +1,13 @@
-# README
+# **Simple Blog Application using Ruby on Rails**
+*A full stack web application, built on Ruby on Rails*
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+**How to install**
+-------------
+Open your terminal and type the following command:
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+    $ git clone https://github.com/dheamariesta/rails-blog.git
+    $ cd rails-blog
+    $ bundle install
+    $ rails db:create
+    $ rails db:migrate
+    $ rails s
