@@ -25,3 +25,5 @@ Open another terminal and type the following command to setup the server:
     $ rails s
 
 Demo: https://powerful-wave-57093.herokuapp.com
+
+This is an open-source project, let me know if you want to contribute!
